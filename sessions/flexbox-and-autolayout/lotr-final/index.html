@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>LOTR Final</title>
+    <style>
+      :root {
+        /** Color Styles */
+        --color-earth: #282828;
+        --color-clouds: #f1f1f1;
+        --color-smoke: #d4d1cd;
+
+        --color-volume-1: #242c31;
+        --color-volume-2: #532724;
+        --color-volume-3: #202c2c;
+
+        /** Gradient Styles */
+        --gradient-overlay: linear-gradient(
+          110deg,
+          rgba(255, 255, 255, 0) 50%,
+          rgba(255, 255, 255, 0.2) 100%
+        );
+
+        /** Font Styles */
+        --font-family: serif;
+        --font-headline-1: normal 700 2.75rem/110% var(--font-family);
+        --font-headline-2: normal 700 2rem/125% var(--font-family);
+        --font-title: normal 700 1rem/125% var(--font-family);
+        --font-caption: normal 500 0.75rem/125% var(--font-family);
+        --font-caption--italic: italic 400 0.75rem/125% var(--font-family);
+        --font-body: normal 400 1rem/125% var(--font-family);
+
+        /** Box Shadow Styles */
+        --box-shadow-volume: 0 4px 8px -2px rgba(0, 0, 0, 0.09),
+          0 7px 4px -4px rgba(0, 0, 0, 0.07),
+          0 16px 8px -8px rgba(0, 0, 0, 0.07),
+          0 22px 12px -12px rgba(0, 0, 0, 0.07),
+          0 2px 10px 0 rgba(0, 0, 0, 0.06);
+        --box-shadow-volume--hover: 0 6px 11px -2px rgba(0, 0, 0, 0.12),
+          0 8px 7px -4px rgba(0, 0, 0, 0.09),
+          0 17px 11px -8px rgba(0, 0, 0, 0.09),
+          0 24px 15px -12px rgba(0, 0, 0, 0.09),
+          0 4px 15px 0 rgba(0, 0, 0, 0.05);
+
+        /** Width Styles */
+        --width-wrapper: min(100% - 64px, 390px - 64px);
+      }
+
+      /** Reset Browser Styles */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      ul,
+      ol,
+      figure,
+      p,
+      body,
+      h1,
+      h2 {
+        padding: 0;
+        margin: 0;
+      }
+
+      img {
+        vertical-align: middle;
+      }
+
+      /** Global Styles */
+      h1 {
+        font: var(--font-headline-1);
+      }
+
+      h2 {
+        font: var(--font-headline-2);
+      }
+
+      body {
+        font: var(--font-body);
+        color: var(--color-earth);
+        background-color: var(--color-clouds);
+      }
+
+      /* @media (prefers-color-scheme: dark) {
+        body {
+          color: var(--color-smoke);
+          background-color: var(--color-earth);
+        }
+      } */
+
+      /** Main Styles */
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 48px;
+        padding-block: 48px;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        width: var(--width-wrapper);
+      }
+
+      .link-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        justify-content: space-between;
+        list-style-type: none;
+      }
+
+      .link {
+        display: inline-block;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .link:hover,
+      .link:focus-visible {
+        text-decoration: underline;
+      }
+
+      .link__figure {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: min-content;
+      }
+
+      .link:hover .cover,
+      .link:focus-visible .cover {
+        box-shadow: var(--box-shadow-volume--hover);
+      }
+
+      .link__caption {
+        font: var(--font-caption);
+      }
+
+      .cover {
+        box-shadow: var(--box-shadow-volume);
+        transition: box-shadow 0.2s;
+      }
+
+      /** Volume Detail Styles */
+      .volume {
+        display: flex;
+        justify-content: center;
+        padding-block: 24px;
+        width: 100%;
+        background: var(--gradient-overlay);
+      }
+
+      .volume--1 {
+        background-color: var(--color-volume-1);
+      }
+
+      .volume--2 {
+        background-color: var(--color-volume-2);
+      }
+
+      .volume--3 {
+        background-color: var(--color-volume-3);
+      }
+
+      .volume__columns {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        width: var(--width-wrapper);
+      }
+
+      .books {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        list-style-type: none;
+        color: var(--color-clouds);
+      }
+
+      .book {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .book__ordinal {
+        font: var(--font-caption--italic);
+      }
+
+      .book__title {
+        font: var(--font-title);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="content">
+        <h1>The Lord of<br />the Rings</h1>
+        <p>
+          The Lord of the Rings is an epic high-fantasy novel by English author
+          and scholar J. R. R. Tolkien. Set in Middle-earth, intended to be
+          Earth at some time in the distant past, the story began as a sequel to
+          Tolkien's 1937 children's book The Hobbit, but eventually developed
+          into a much larger work. Written in stages between 1937 and 1949, The
+          Lord of the Rings is one of the best-selling books ever written, with
+          over 150 million copies sold.
+        </p>
+      </section>
+      <section class="content">
+        <h2>Go to volume</h2>
+        <ol class="link-list">
+          <li>
+            <a href="#the-fellowship-of-the-ring" class="link"
+              ><figure class="link__figure">
+                <img
+                  alt="cover Image of The Fellowship of the Ring"
+                  src="images/the-fellowship-of-the-ring.png"
+                  width="85"
+                  height="140"
+                  class="cover"
+                />
+                <figcaption class="link__caption">
+                  The Fellowship of the Ring
+                </figcaption>
+              </figure></a
+            >
+          </li>
+          <li>
+            <a href="#the-two-towers" class="link"
+              ><figure class="link__figure">
+                <img
+                  alt="cover Image of The Two Towers"
+                  src="images/the-two-towers.png"
+                  width="85"
+                  height="140"
+                  class="cover"
+                />
+                <figcaption class="link__caption">The Two Towers</figcaption>
+              </figure></a
+            >
+          </li>
+          <li>
+            <a href="#the-return-of-the-king" class="link"
+              ><figure class="link__figure">
+                <img
+                  alt="cover Image of The Return of the King"
+                  src="images/the-return-of-the-king.png"
+                  width="85"
+                  height="140"
+                  class="cover"
+                />
+                <figcaption class="link__caption">
+                  The Return of the King
+                </figcaption>
+              </figure></a
+            >
+          </li>
+        </ol>
+      </section>
+      <section class="content">
+        <h2 id="the-fellowship-of-the-ring">The Fellowship of the Ring</h2>
+        <p>
+          The Fellowship of the Ring is the first volume of J. R. R. Tolkien's
+          epic adventure The Lord of the Rings. It is followed by The Two Towers
+          and The Return of the King.
+        </p>
+      </section>
+      <section class="volume volume--1">
+        <div class="volume__columns">
+          <ul class="books">
+            <li class="book">
+              <span class="book__ordinal">Book I</span>
+              <span class="book__title">The Ring Sets Out</span>
+            </li>
+            <li class="book">
+              <span class="book__ordinal">Book II</span>
+              <span class="book__title">The Ring Goes South</span>
+            </li>
+          </ul>
+          <img
+            alt="Cover Image of The Fellowship of the Ring"
+            src="images/the-fellowship-of-the-ring.png"
+            width="140"
+            height="230"
+            class="cover"
+          />
+        </div>
+      </section>
+      <section class="content">
+        <h2 id="the-two-towers">The Two Towers</h2>
+        <p>
+          The Two Towers is the second volume of J. R. R. Tolkien's epic
+          adventure The Lord of the Rings. It is preceded by The Fellowship of
+          the Ring and followed by The Return of the King.
+        </p>
+      </section>
+      <section class="volume volume--2">
+        <div class="volume__columns">
+          <ul class="books">
+            <li class="book">
+              <span class="book__ordinal">Book III</span>
+              <span class="book__title">The Treason of Isengard</span>
+            </li>
+            <li class="book">
+              <span class="book__ordinal">Book IV</span>
+              <span class="book__title">The Ring Goes East</span>
+            </li>
+          </ul>
+          <img
+            alt="Cover Image of The Two Towers"
+            src="images/the-two-towers.png"
+            width="140"
+            height="230"
+            class="cover"
+          />
+        </div>
+      </section>
+      <section class="content">
+        <h2 id="the-return-of-the-king">The Return of the King</h2>
+        <p>
+          The Return of the King is the third and final volume of J. R. R.
+          Tolkien's epic adventure The Lord of the Rings. It is preceded by The
+          Fellowship of the Ring and The Two Towers.
+        </p>
+      </section>
+      <section class="volume volume--3">
+        <div class="volume__columns">
+          <ul class="books">
+            <li class="book">
+              <span class="book__ordinal">Book V</span>
+              <span class="book__title">The War of the Ring</span>
+            </li>
+            <li class="book">
+              <span class="book__ordinal">Book VI</span>
+              <span class="book__title">The End of the Third Age</span>
+            </li>
+          </ul>
+          <img
+            alt="Cover Image of The Return of the King"
+            src="images/the-return-of-the-king.png"
+            width="140"
+            height="230"
+            class="cover"
+          />
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

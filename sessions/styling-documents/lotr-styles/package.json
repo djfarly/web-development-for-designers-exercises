@@ -1,0 +1,10 @@
+{
+  "name": "structuring-documents_first-document",
+  "version": "0.0.0-unreleased",
+  "description": "Structuring Documents: First Document",
+  "main": "index.html",
+  "nf": {
+    "template": "html-css-static"
+  },
+  "private": true
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Build Something: Card Final</title>
+    <style>
+      :root {
+        /** Color Styles */
+        --color-nemo: #ff4a11;
+        --color-granite: #252629;
+        --color-water10: #e4e8f0;
+        --color-foam: #ffffff;
+        --color-grey: #6f727b;
+
+        /** Font Styles */
+        /**
+          * Even though the Figma file has a font-family of Inter,
+          * we will use system-ui instead.
+          */
+        --font-family: system-ui;
+
+        /**
+          * The font shorthand property is a convenient way to set font-style,
+          * font-variant, font-weight, font-size/line-height, and font-family
+          * in one declaration.
+          *
+          * The font-size and line-height are separated by a forward slash.
+          * The line-height is optional.
+          *
+          * The font-weight can be a number (100-900) or a keyword.
+          * The font-style can be a keyword.
+          *
+          * The font-family is a comma-separated list of font names.
+          * The browser will use the first font that is available.
+          *
+          * You can grab the values from the Figma Inspect tab.
+          * Make sure to convert the font-size to rem.
+          * https://nekocalc.com/px-to-rem-converter
+          */
+        --font-title: normal 600 1.125rem/140% var(--font-family);
+        --font-body: normal 400 1rem/140% var(--font-family);
+        --font-button: normal 400 0.875rem/140% var(--font-family);
+      }
+
+      /** Reset Browser Styles */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      body {
+        margin: 0;
+      }
+
+      img {
+        vertical-align: middle;
+      }
+
+      main {
+        padding: 16px;
+      }
+
+      /**
+        * The Card styles are only missing their flex properties.
+        */
+      .card {
+        background-color: var(--color-foam);
+        box-shadow: 0 4px 10px rgb(0 0 0 / 15%);
+        overflow: hidden;
+        border-radius: 8px;
+
+        /* copy the flex properties from the Figma file: */
+        display: flex;
+        flex-direction: column;
+      }
+
+      /**
+        * The Card Image styles are already correct.
+        */
+      .card__image {
+        object-fit: cover;
+        aspect-ratio: 16/9;
+        width: 100%;
+      }
+
+      /**
+        * The Card Content styles need the correct flex properties and padding.
+        */
+      .card__content {
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+        gap: 16px;
+      }
+
+      /**
+        * The Card Header needs some adjustments from the Figma file.
+        * Figma does not support space between in combination with a minimum gap.
+        * Set the gap to 32px instead, no matter what the Figma file says.
+        */
+      .card__header {
+        display: flex;
+        justify-content: space-between;
+        gap: 32px;
+        align-items: flex-start;
+      }
+
+      /**
+        * The Card Title only needs the correct color and font property.
+        */
+      .card__title {
+        color: var(--color-granite);
+        font: var(--font-title);
+      }
+
+      /**
+        * The Card Price only needs the correct color and font property.
+        */
+      .card__price {
+        color: var(--color-grey);
+        font: var(--font-title);
+      }
+
+      /**
+        * The Card Body needs the correct color and font property
+        * as well as the correct flex properties.
+        */
+      .card__body {
+        color: var(--color-granite);
+        font: var(--font-body);
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      /**
+        * The Card Actions need the correct flex properties.
+        */
+      .card__actions {
+        display: flex;
+        gap: 16px;
+        justify-content: flex-end;
+      }
+
+      /**
+        * The Button needs the following properties:
+        * - background-color (set to nemo color)
+        * - border (set to none)
+        * - border-radius (grab the value from the Figma file)
+        * - color (set to foam color)
+        * - font (set to button font)
+        * - padding (grab the value from the Figma file)
+        */
+      .button {
+        background-color: var(--color-nemo);
+        border: none;
+        border-radius: 4px;
+        color: var(--color-foam);
+        font: var(--font-button);
+        padding: 8px 16px;
+      }
+
+      /**
+        * The Button Secondary needs the following properties:
+        * - background-color (set to water10 color)
+        * - color (set to granite color)
+        */
+      .button--secondary {
+        background-color: var(--color-water10);
+        color: var(--color-granite);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article class="card">
+        <img
+          class="card__image"
+          src="images/la-interior.jpg"
+          alt="Magnificent Apartment, Los Angeles Downtown, Great View"
+        />
+        <div class="card__content">
+          <header class="card__header">
+            <h2 class="card__title">
+              Magnificent Apartment, Los Angeles Downtown, Great View
+            </h2>
+            <div class="card__price">$550</div>
+          </header>
+          <section class="card__body">
+            <p>
+              I drive on her streets 'cause she's my companion. I walk through
+              her hills 'cause she knows who I am.
+            </p>
+            <div class="card__actions">
+              <button class="button button--secondary">Add to wishlist</button>
+              <button class="button">Buy now</button>
+            </div>
+          </section>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
